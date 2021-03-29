@@ -1,6 +1,6 @@
-# Control Variates Selection for Monte Carlo Integration
+# Control Variate Selection for Monte Carlo Integration
 
-This is the code for the article "Control Variates Selection for Monte Carlo Integration", Rémi LELUC, François PORTIER, Johan SEGERS.
+This is the code for the article "Control Variate Selection for Monte Carlo Integration", Rémi LELUC, François PORTIER, Johan SEGERS.
 
 ## Description
 
