@@ -17,3 +17,16 @@ Python scripts
 - functions.py      : synthetic functions to integrate over [0,1]^d
 - modelMC.py        : implements main class CVMC() with all Monte Carlo estimates
 
+## Citation
+
+> @article{leluc2021control,
+  title={Control variate selection for Monte Carlo integration},
+  author={Leluc, R{\'e}mi and Portier, Fran{\c{c}}ois and Segers, Johan},
+  journal={Statistics and Computing},
+  volume={31},
+  number={4},
+  pages={50},
+  year={2021},
+  publisher={Springer}
+}
+>
