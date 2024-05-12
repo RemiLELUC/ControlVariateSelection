@@ -1,6 +1,8 @@
 # Control Variate Selection for Monte Carlo Integration
 
-This is the code for the article "Control Variate Selection for Monte Carlo Integration", Rémi LELUC, François PORTIER, Johan SEGERS.
+This is the code associated to the research article "Control Variate Selection for Monte Carlo Integration", Rémi LELUC, François PORTIER, Johan SEGERS. See [PDF](https://rdcu.be/cnesX)
+
+This implementation is made by [Rémi LELUC](https://remileluc.github.io/)
 
 ## Description
 
