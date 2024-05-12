@@ -19,6 +19,83 @@ Python scripts
 - functions.py      : synthetic functions to integrate over [0,1]^d
 - modelMC.py        : implements main class CVMC() with all Monte Carlo estimates
 
+### Examples
+
+**Dimension d=1**
+
+```python
+>>> from modelMC import CVMC
+>>> # Integrand f on [0,1] (integral is pi)
+>>> def f(x): return 1/np.sqrt(x*(1-x))
+>>> # Loop over replications to check variance reduction
+>>> N = 100 # number of replications
+>>> # Initialize results
+>>> I_mc_list = np.zeros(N) 
+>>> I_ols_list = np.zeros(N)
+>>> I_lasso_list = np.zeros(N)
+>>> I_lslx_list = np.zeros(N)
+>>> for i in range(N):
+... # Instance of Control Variate Monte Carlo estimator
+... cvmc = CVMC(seed=i,func=f,n=500,d=1,k=20,law='uniform',basis='legendre')
+... # Compute different MC estimates
+... I_mc = cvmc.get_van()
+... I_olsmc = cvmc.get_ols(deg=20)
+... I_lassomc = cvmc.get_lasso(deg=20,c1=200,c2=300)
+... I_lslx = cvmc.get_lslassox(deg=20,n_sample=200,c1=50,c2=500)
+... # Store the results
+... I_mc_list[i]=I_mc
+... I_ols_list[i]=I_olsmc
+... I_lasso_list[i]=I_lassomc
+... I_lslx_list[i]=I_lslx
+>>> # Check Mean Squared Errors
+>>> print('MSE MC     :',np.mean((I_mc_list-np.pi)**2))
+>>> print('MSE OLSMC  :',np.mean((I_ols_list-np.pi)**2))
+>>> print('MSE LASSOMC:',np.mean((I_lasso_list-np.pi)**2))
+>>> print('MSE LSLXMC :',np.mean((I_lslx_list-np.pi)**2))
+MSE MC     : 3.25e-02
+MSE OLSMC  : 9.50e-03
+MSE LASSOMC: 9.89e-03
+MSE LSLXMC : 9.50e-03
+```
+
+**General dimension**
+
+```python
+>>> from modelMC import CVMC
+>>> # Integrand phi on [0,1] (integral is 0)
+>>> def phi(x):
+... return np.sin(np.pi*(2*np.mean(x) - 1)) 
+>>> # Loop over replications to check variance reduction
+>>> N = 100 # number of replications
+>>> # Initialize results
+>>> I_mc_list = np.zeros(N) 
+>>> I_ols_list = np.zeros(N)
+>>> I_lasso_list = np.zeros(N)
+>>> I_lslx_list = np.zeros(N)
+>>> for i in range(N):
+... # Instance of Control Variate Monte Carlo estimator
+... cvmc = CVMC(seed=i,func=f,n=500,d=dim,k=5,law='uniform',basis='legendre')
+... # Compute different MC estimates
+... I_mc = cvmc.get_van()
+... I_olsmc = cvmc.get_ols(deg=3)
+... I_lassomc = cvmc.get_lasso(deg=3,c1=200,c2=500)
+... I_lslx = cvmc.get_lslassox(deg=3,n_sample=200,c1=50,c2=500)
+... # Store the results
+... I_mc_list[i]=I_mc
+... I_ols_list[i]=I_olsmc
+... I_lasso_list[i]=I_lassomc
+... I_lslx_list[i]=I_lslx
+>>> # Check Mean Squared Errors
+>>> print('MSE MC     :',np.mean((I_mc_list)**2))
+>>> print('MSE OLSMC  :',np.mean((I_ols_list)**2))
+>>> print('MSE LASSOMC:',np.mean((I_lasso_list)**2))
+>>> print('MSE LSLXMC :',np.mean((I_lslx_list)**2))
+MSE MC     : 8.21e-04
+MSE OLSMC  : 3.34e-07
+MSE LASSOMC: 3.29e-07
+MSE LSLXMC : 3.34e-07
+```
+
 ## Citation
 
 > @article{leluc2021control,
