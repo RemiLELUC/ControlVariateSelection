@@ -6,7 +6,8 @@ This implementation is made by [Rémi LELUC](https://remileluc.github.io/).
 
 ## Citation
 
-> @article{leluc2021control,
+```bibtex
+@article{leluc2021control,
   title={Control variate selection for Monte Carlo integration},
   author={Leluc, R{\'e}mi and Portier, Fran{\c{c}}ois and Segers, Johan},
   journal={Statistics and Computing},
@@ -14,9 +15,8 @@ This implementation is made by [Rémi LELUC](https://remileluc.github.io/).
   number={4},
   pages={50},
   year={2021},
-  publisher={Springer}
-}
->
+  publisher={Springer}}
+```
 
 ## Abstract
 
