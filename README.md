@@ -1,8 +1,32 @@
 # Control Variate Selection for Monte Carlo Integration
 
-This is the code associated to the research article "Control Variate Selection for Monte Carlo Integration", Rémi LELUC, François PORTIER, Johan SEGERS. See [PDF](https://rdcu.be/cnesX)
+This is the code associated to the research article "Control Variate Selection for Monte Carlo Integration", Rémi LELUC, François PORTIER, Johan SEGERS. Accepted in *Statistics and Computing 31 (2021)*, see [PDF](https://rdcu.be/cnesX).
 
-This implementation is made by [Rémi LELUC](https://remileluc.github.io/)
+This implementation is made by [Rémi LELUC](https://remileluc.github.io/).
+
+## Citation
+
+> @article{leluc2021control,
+  title={Control variate selection for Monte Carlo integration},
+  author={Leluc, R{\'e}mi and Portier, Fran{\c{c}}ois and Segers, Johan},
+  journal={Statistics and Computing},
+  volume={31},
+  number={4},
+  pages={50},
+  year={2021},
+  publisher={Springer}
+}
+>
+
+## Abstract
+
+Monte Carlo integration with variance reduction by means of control variates can be implemented by the ordinary least squares estimator for the intercept in a multiple linear regression model with the integrand as response and the control variates as covariates. Even without special knowledge on the integrand, significant efficiency gains can be obtained if the control variate space is sufficiently large. Incorporating a large number of control variates in the ordinary least squares procedure may however result in:
+
+(i) a certain instability of the ordinary least squares estimator
+
+(ii) a possibly prohibitive computation time
+
+Regularizing the ordinary least squares estimator by preselecting appropriate control variates via the Lasso turns out to increase the accuracy without additional computational cost. The findings in the numerical experiment are confirmed by concentration inequalities for the integration error.
 
 ## Description
 
@@ -96,16 +120,4 @@ MSE LASSOMC: 3.29e-07
 MSE LSLXMC : 3.34e-07
 ```
 
-## Citation
 
-> @article{leluc2021control,
-  title={Control variate selection for Monte Carlo integration},
-  author={Leluc, R{\'e}mi and Portier, Fran{\c{c}}ois and Segers, Johan},
-  journal={Statistics and Computing},
-  volume={31},
-  number={4},
-  pages={50},
-  year={2021},
-  publisher={Springer}
-}
->
